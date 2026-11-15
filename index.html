@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mayak: download</title>
+<meta name="description" content="Mayak: systematic crypto trading for Hyperliquid. Free download for Mac, Windows and Linux." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+  :root {
+    --bg: #05080f; --surface: #0a0f1a; --surface-2: #0e1522; --line: rgba(255,255,255,.08);
+    --text: #e2e8f0; --muted: #94a3b8; --faint: #64748b; --beam: #fbbf24; --beam-2: #fcd34d; --sky: #38bdf8; --ok: #34d399;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, "Segoe UI", Inter, system-ui, sans-serif; }
+  body { background-image: radial-gradient(1000px 520px at 10% -10%, rgba(251,191,36,.08), transparent 60%), radial-gradient(800px 480px at 100% 0%, rgba(56,189,248,.07), transparent 60%); }
+  a { color: var(--sky); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; color: #fff; text-decoration: none; }
+  .hero { display: grid; gap: 40px; align-items: center; padding: 40px 0 56px; }
+  @media (min-width: 900px) { .hero { grid-template-columns: 1.1fr 1fr; } }
+  h1 { font-size: clamp(32px, 5vw, 50px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 16px; color: #fff; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 34rem; margin: 0 0 28px; }
+  .dl { display: inline-flex; align-items: center; gap: 10px; background: var(--beam); color: #05080f; font-weight: 700; text-decoration: none;
+        padding: 15px 26px; border-radius: 14px; font-size: 17px; box-shadow: 0 0 0 1px rgba(251,191,36,.3), 0 14px 36px -12px rgba(251,191,36,.6); }
+  .dl:hover { background: var(--beam-2); }
+  .meta { color: var(--faint); font-size: 13px; margin-top: 12px; }
+  .others { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 14px; }
+  .others a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .card { background: rgba(10,15,26,.8); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+  section { padding: 34px 0; }
+  h2 { font-size: 24px; color: #fff; margin: 0 0 8px; letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: 0 0 22px; }
+  .grid2 { display: grid; gap: 20px; }
+  @media (min-width: 860px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  ol.steps li { counter-increment: s; position: relative; padding-left: 38px; margin: 0 0 16px; color: var(--text); }
+  ol.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+        background: rgba(251,191,36,.12); color: var(--beam-2); font-weight: 700; font-size: 13px; }
+  /* mock OS dialogs, drawn in CSS */
+  .os { border-radius: 12px; overflow: hidden; border: 1px solid #2a3549; margin: 10px 0 4px; font-size: 13px; }
+  .win { background: #0b5cad; color: #fff; padding: 16px 18px; }
+  .win h4 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+  .win .link { text-decoration: underline; font-weight: 600; outline: 2px solid var(--beam); outline-offset: 2px; border-radius: 3px; padding: 0 2px; }
+  .win .row { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+  .win .btn { border: 1px solid #fff; padding: 5px 16px; border-radius: 2px; }
+  .win .btn.hi { outline: 2px solid var(--beam); outline-offset: 2px; }
+  .mac { background: #ececec; color: #1d1d1f; padding: 14px 16px; }
+  .mac .title { font-weight: 600; margin-bottom: 8px; }
+  .mac .msg { background: #fff; border-radius: 8px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .mac .open { background: #fff; border: 1px solid #c7c7c7; border-radius: 6px; padding: 3px 10px; white-space: nowrap; outline: 2px solid #d97706; outline-offset: 2px; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .cmd { display: flex; gap: 10px; align-items: center; background: #05080f; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 8px 0 18px; }
+  .cmd code { flex: 1; overflow-x: auto; white-space: nowrap; color: #e2e8f0; font-size: 13px; }
+  .copy { background: rgba(255,255,255,.07); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; font: inherit; font-size: 12px; }
+  .note { color: var(--faint); font-size: 13px; }
+  footer { color: var(--faint); font-size: 13px; padding: 36px 0 60px; border-top: 1px solid var(--line); margin-top: 20px; }
+  .pill { display: inline-block; font-size: 12px; color: var(--ok); border: 1px solid rgba(52,211,153,.3); background: rgba(52,211,153,.08); border-radius: 999px; padding: 2px 10px; margin-right: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="#"><img src="favicon.svg" width="34" height="34" alt="" /> Mayak</a>
+    <a href="#install" style="font-size:14px;text-decoration:none;color:var(--muted)">Install help</a>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>A steady light for your crypto trading.</h1>
+      <p class="lead">Rule-based strategies, honest backtests, paper trading with real prices, and strict risk limits for Hyperliquid. Free. Your keys never leave your computer.</p>
+      <a id="dl" class="dl" href="#">Download Mayak</a>
+      <div id="meta" class="meta">Looking up the latest version…</div>
+      <div id="others" class="others"></div>
+      <p style="margin-top:22px"><span class="pill">Free</span><span class="pill">No account needed</span><span class="pill">Auto-updates</span></p>
+    </div>
+    <div class="card">
+      <img src="favicon.svg" width="72" height="72" alt="" />
+      <h2 style="margin-top:12px">Three ways to use it</h2>
+      <p class="sub" style="margin:0 0 12px">Autopilot paper-trades (and later live-trades) validated strategies. The Advisor shows signals while you decide. Portfolio tracks any Hyperliquid account read-only.</p>
+      <p class="note">Mayak provides signals and automation tools, not financial advice. You trade with your own money at your own risk.</p>
+    </div>
+  </div>
+
+  <section id="install">
+    <h2>First time opening it</h2>
+    <p class="sub">Mayak is free and isn't sold through an app store, so your computer shows a one-time warning. Here's exactly what to click.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3 style="margin:0 0 12px;color:#fff">Windows</h3>
+        <ol class="steps">
+          <li>Open the downloaded <b>Mayak…setup.exe</b>.</li>
+          <li>If a blue “Windows protected your PC” box appears, click <b>More info</b>:
+            <div class="os"><div class="win"><h4>Windows protected your PC</h4>Microsoft Defender SmartScreen prevented an unrecognized app from starting. <span class="link">More info</span><div class="row"><span class="btn">Don't run</span></div></div></div></li>
+          <li>Then click <b>Run anyway</b>:
+            <div class="os"><div class="win"><h4>Windows protected your PC</h4>App: Mayak_setup.exe<br/>Publisher: Unknown publisher<div class="row"><span class="btn hi">Run anyway</span><span class="btn">Don't run</span></div></div></div></li>
+          <li>The installer adds Mayak to your Start menu and desktop. No admin rights needed.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 12px;color:#fff">Mac</h3>
+        <ol class="steps">
+          <li>Open the downloaded <b>.dmg</b> and drag <b>Mayak</b> onto <b>Applications</b>.</li>
+          <li>Open Mayak from Applications. If macOS says it “can't be opened”, click <b>Done</b>.</li>
+          <li>Open <b>System Settings → Privacy &amp; Security</b>, scroll down, and click <b>Open Anyway</b>:
+            <div class="os"><div class="mac"><div class="title">Security</div><div class="msg"><span>“Mayak” was blocked to protect your Mac.</span><span class="open">Open Anyway</span></div></div></div></li>
+          <li>Confirm once more. From now on Mayak opens normally.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Prefer one line?</h2>
+    <p class="sub">These download the latest release from GitHub over HTTPS, check its SHA-256 checksum, and install it. Read them first: they're short.</p>
+    <div class="card">
+      <b>Mac or Linux</b> (Terminal)
+      <div class="cmd"><code id="c1">curl -fsSL https://idriscafarov.github.io/mayak-releases/install.sh | bash</code><button class="copy" data-for="c1">Copy</button></div>
+      <b>Windows</b> (PowerShell)
+      <div class="cmd"><code id="c2">irm https://idriscafarov.github.io/mayak-releases/install.ps1 | iex</code><button class="copy" data-for="c2">Copy</button></div>
+      <p class="note">Sources: <a href="install.sh">install.sh</a> · <a href="install.ps1">install.ps1</a> · <a href="https://github.com/IdrisCafarov/mayak-releases/releases">all releases</a></p>
+    </div>
+  </section>
+
+  <footer>
+    Mayak is free software provided as is, without warranty. It is not financial advice. Crypto is volatile and you can lose money, especially with leverage.
+  </footer>
+</div>
+<script>
+  const REPO = "IdrisCafarov/mayak-releases";
+  const RULES = [
+    { os: "mac-arm", label: "Mac (Apple Silicon)", match: (n) => /aarch64\.dmg$/.test(n) },
+    { os: "mac-intel", label: "Mac (Intel)", match: (n) => /x64\.dmg$/.test(n) },
+    { os: "windows", label: "Windows", match: (n) => /x64-setup\.exe$/.test(n) },
+    { os: "linux", label: "Linux (AppImage)", match: (n) => /\.AppImage$/.test(n) },
+    { os: "linux-deb", label: "Linux (.deb)", match: (n) => /\.deb$/.test(n) },
+  ];
+  async function detect() {
+    const ua = navigator.userAgent;
+    if (/Windows/i.test(ua)) return "windows";
+    if (/Linux|X11/i.test(ua) && !/Android/i.test(ua)) return "linux";
+    if (/Mac/i.test(ua)) {
+      try {  // Chromium browsers can tell us the CPU; Safari/Firefox can't, so default to Apple Silicon.
+        const h = await navigator.userAgentData?.getHighEntropyValues?.(["architecture"]);
+        if (h && h.architecture === "x86") return "mac-intel";
+      } catch (e) {}
+      return "mac-arm";
+    }
+    return "windows";
+  }
+  (async () => {
+    const os = await detect();
+    const dl = document.getElementById("dl"), meta = document.getElementById("meta"), others = document.getElementById("others");
+    try {
+      const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`);
+      if (!r.ok) throw new Error();
+      const rel = await r.json();
+      const assets = rel.assets || [];
+      const found = RULES.map((rule) => ({ ...rule, asset: assets.find((a) => rule.match(a.name)) })).filter((x) => x.asset);
+      const mine = found.find((x) => x.os === os) || found[0];
+      if (!mine) throw new Error();
+      dl.href = mine.asset.browser_download_url;
+      dl.textContent = `Download for ${mine.label}`;
+      meta.textContent = `Version ${rel.tag_name.replace(/^v/, "")} · ${(mine.asset.size / 1e6).toFixed(0)} MB · released ${new Date(rel.published_at).toLocaleDateString()}`;
+      others.innerHTML = "Other systems: " + found.filter((x) => x !== mine).map((x) => `<a href="${x.asset.browser_download_url}">${x.label}</a>`).join("");
+    } catch (e) {
+      dl.href = `https://github.com/${REPO}/releases/latest`;
+      dl.textContent = "Download from GitHub";
+      meta.textContent = "Couldn't reach GitHub to find your file; the button opens the releases page.";
+    }
+  })();
+  document.querySelectorAll(".copy").forEach((b) => b.addEventListener("click", async () => {
+    await navigator.clipboard.writeText(document.getElementById(b.dataset.for).textContent);
+    b.textContent = "Copied"; setTimeout(() => (b.textContent = "Copy"), 1500);
+  }));
+</script>
+</body>
+</html>
